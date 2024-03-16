@@ -13,9 +13,9 @@ const server = express();
 server.use(express.json());
 server.use(express.urlencoded({extended: false}));
 
-server.use('./api/user', UserRoutes);
-server.use('./api/games', VideogameRoutes);
-server.use('./api/consoles', ConsoleRoutes);
+server.use('/api/user', UserRoutes);
+server.use('/api/games', VideogameRoutes);
+server.use('/api/consoles', ConsoleRoutes);
 
 server.use('*', (res, req, next) => {
     const err = new Error('Route not found');

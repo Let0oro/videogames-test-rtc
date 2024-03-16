@@ -7,7 +7,9 @@ async function isAuth(req, res, next) {
 
     try {
         const decoded = verifyToken(token, process.env.JWT_SECRET)
+        console.log({decoded});
         req.user = await User.findById(decoded.id)
+        return next()
     } catch (err) {
         next(err)
     }

@@ -5,11 +5,11 @@ const validator = require("validator");
 const userSchema = new mongoose.Schema(
   {
     email: { type: String, trim: true, required: true, unique: true },
-    nombreUsuario: { type: String, trim: true, required: true, unique: true },
-    contraseña: { type: String, trim: true, required: true },
-    añoNacimiento: { type: Number, trim: true, required: true },
+    name: { type: String, trim: true, required: true, unique: true },
+    password: { type: String, trim: true, required: true },
+    birthAge: { type: Number, trim: true, required: true },
     rol: { type: String, trim: true, required: true },
-    imagenPerfil: { type: String, trim: true, required: true },
+    image: { type: String, trim: true, required: true },
     games_property: [{type: mongoose.Schema.Types.ObjectId, ref: 'games'}]
   },
   { timestamps: true }
