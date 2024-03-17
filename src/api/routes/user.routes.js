@@ -7,9 +7,10 @@ const {
     changePasswordUser
 } = require('../controllers/user.controller');
 const isAuth = require('../../middlewares/auth.middleware');
+const isAdmin = require("../../middlewares/admin.middleware");
 
-UserRoutes.post('/register', registerUser);
-UserRoutes.post('/login', loginUser);
+UserRoutes.post('/register', [isAdmin], registerUser);
+UserRoutes.post('/login', [isAdmin], loginUser);
 UserRoutes.post('/logout', [isAuth], logoutUser);
 UserRoutes.delete('/remove', [isAuth], removeUser);
 UserRoutes.put('/password', [isAuth], changePasswordUser);

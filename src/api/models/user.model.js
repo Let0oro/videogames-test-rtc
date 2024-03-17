@@ -8,7 +8,8 @@ const userSchema = new mongoose.Schema(
     name: { type: String, trim: true, required: true, unique: true },
     password: { type: String, trim: true, required: true },
     birthAge: { type: Number, trim: true, required: true },
-    rol: { type: String, trim: true, required: true },
+    isAdmin: { type: String, trim: true },
+    rol: { type: Boolean, trim: true },
     image: { type: String, trim: true, required: true },
     games_property: [{type: mongoose.Schema.Types.ObjectId, ref: 'games'}]
   },
